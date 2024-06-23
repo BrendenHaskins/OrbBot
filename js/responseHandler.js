@@ -1,3 +1,5 @@
+require('fontUtilities');
+
 function responseHandler(command,body,additional)  {
     switch (command) {
         case 'font':

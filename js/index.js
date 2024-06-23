@@ -32,9 +32,7 @@ client.on('messageCreate', msg => {
 
         if(arguments.length < 2) {
             msg.reply('orb call ' + msgLower + ' does not exist. (try !orb help)');
-        }
-
-        if(arguments.length === 4) {
+        } else if(arguments.length === 4) {
             msg.reply(handler.responseHandler(arguments[1],arguments[2],arguments[3]))
         } else {
             msg.reply(handler.responseHandler(arguments[1],arguments[2]));

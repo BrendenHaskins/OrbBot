@@ -1,10 +1,10 @@
-require('./fontUtilities.js');
+const font = require('./fontUtilities.js');
 
 function responseHandler(command,body,additional)  {
     switch (command) {
         case 'font':
             characters = Array.from(body);
-            return changeFont(characters, additional);
+            return font.changeFont(characters, additional);
         case 'test':
             msg.reply('is this thing on?');
             break;
@@ -16,3 +16,8 @@ function responseHandler(command,body,additional)  {
             break;
     }
 }
+
+//allow module exporting of functions
+module.exports = {
+    responseHandler
+};

@@ -37,3 +37,8 @@ function parseUnicode(element) {
         (element - 0x10000) & 0x3FF | 0xDC00
     );
 }
+
+//allow module exporting of functions
+module.exports = {
+    changeFont
+};

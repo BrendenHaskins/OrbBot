@@ -1,7 +1,7 @@
 //Discord bot init
 
 require('dotenv').config();
-require('./responseHandler.js');
+const handler = require('./responseHandler.js');
 const Discord = require('discord.js');
 const { Client, GatewayIntentBits, PermissionsBitField} = require('discord.js');
 const client = new Discord.Client({
@@ -32,9 +32,9 @@ client.on('messageCreate', msg => {
         }
 
         if(arguments.length === 4) {
-            msg.reply(responseHandler(arguments[1],arguments[2],arguments[3]))
+            msg.reply(handler.responseHandler(arguments[1],arguments[2],arguments[3]))
         } else {
-            msg.reply(responseHandler(arguments[1],arguments[2]));
+            msg.reply(handler.responseHandler(arguments[1],arguments[2]));
         }
     } else {
         msg.reply('did not hear my name');

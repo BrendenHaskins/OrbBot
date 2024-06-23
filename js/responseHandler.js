@@ -1,10 +1,10 @@
 const font = require('./fontUtilities.js');
 
-function responseHandler(command,body,additional)  {
+function responseHandler(command,body)  {
     switch (command) {
         case 'font':
             let characters = Array.from(body);
-            return font.changeFont(characters, additional);
+            return font.changeFont(body);
         case 'test':
             return('is this thing on?');
         case 'help':

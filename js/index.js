@@ -37,8 +37,6 @@ client.on('messageCreate', msg => {
         } else {
             msg.reply(handler.responseHandler(arguments[1],arguments[2]));
         }
-    } else {
-        msg.reply('did not hear my name');
     }
 });
 

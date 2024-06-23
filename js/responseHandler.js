@@ -6,14 +6,11 @@ function responseHandler(command,body,additional)  {
             characters = Array.from(body);
             return font.changeFont(characters, additional);
         case 'test':
-            msg.reply('is this thing on?');
-            break;
+            return('is this thing on?');
         case 'help':
-            msg.reply('orb is still in development. good luck.')
-            break;
+            return('orb is still in development. good luck.')
         default:
-            msg.reply('orb call ' + command + ' does not exist. (try !orb help)');
-            break;
+            return('orb call ' + command + ' does not exist. (try !orb help)');
     }
 }
 

@@ -1,7 +1,7 @@
 //Discord bot init
 
 require('dotenv').config();
-require('responseHandler');
+require('responseHandler.js');
 const Discord = require('discord.js');
 const { Client, GatewayIntentBits, PermissionsBitField} = require('discord.js');
 const client = new Discord.Client({

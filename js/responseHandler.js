@@ -1,4 +1,4 @@
-require('fontUtilities');
+require('fontUtilities.js');
 
 function responseHandler(command,body,additional)  {
     switch (command) {

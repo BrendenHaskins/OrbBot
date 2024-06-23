@@ -21,9 +21,9 @@ client.on('ready', () => {
 //if a message starts with an orb call, handle the request.
 client.on('messageCreate', msg => {
     let msgLower = msg.content.toLowerCase();
-    let response = [];
+    let arguments = msgLower.split(' ');
 
-    if(msgLower.slice(0,3) === '!orb') {
+    if(arguments[0] === "!orb") {
         let arguments = msgLower.split(' ');
 
         if(arguments.length < 2) {

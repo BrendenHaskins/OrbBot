@@ -3,7 +3,7 @@ const font = require('./fontUtilities.js');
 function responseHandler(command,body,additional)  {
     switch (command) {
         case 'font':
-            characters = Array.from(body);
+            let characters = Array.from(body);
             return font.changeFont(characters, additional);
         case 'test':
             return('is this thing on?');

@@ -1,3 +1,8 @@
+/**
+ * responseHandler module takes requests from index.js and channels them to the proper module
+ * @author Brenden Haskins
+ */
+
 const font = require('./fontUtilities.js');
 
 function responseHandler(command,body)  {

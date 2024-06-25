@@ -1,4 +1,8 @@
-//Discord bot init
+/**
+ * initial module, brings the bot online
+ * node index.js
+ * @author Brenden Haskins
+ */
 
 require('dotenv').config();
 const handler = require('./responseHandler.js');

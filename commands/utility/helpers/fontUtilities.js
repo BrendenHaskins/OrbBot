@@ -1,5 +1,5 @@
 /**
- * fontUtilities module handles all font manipulation called from responseHandler.js
+ * fontUtilities module handles all font manipulation
  * @author Brenden Haskins
  */
 
@@ -22,13 +22,9 @@ function changeFont(body, font) {
                 let code = placeholder.charCodeAt(0);
                 code = code - 97;
                 switch (font) {
-                    case 'freaky':
+                    case 'mbs':
                         output += parseUnicode(mathBoldScriptUnicode[code]);
                         break;
-                    case font === ' ':
-                        return 'font not specified.';
-                    default:
-                        return'no such font: ' + font;
                 }
             }
         });

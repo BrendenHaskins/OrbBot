@@ -37,14 +37,6 @@ const rest = new REST().setToken(token);
 // deployment mode: GLOBAL
 (async () => {
 	try {
-
-		//clear all previous commands
-		console.log('clearing all associated commands.')
-		const clearData = await rest.put(
-			Routes.applicationCommands(clientId),
-			{ body: [] },
-		);
-
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
 		// The put method is used to fully refresh all commands in the guild with the current set

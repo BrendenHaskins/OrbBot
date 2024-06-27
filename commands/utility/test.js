@@ -1,11 +1,10 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('test')
-        .setDescription('Runs a live test of OrbBot'),
-        async execute(interaction) {
-            await interaction.reply('orb is willing, able, and ready');
-        },
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Replies with Pong!'),
+	async execute(interaction) {
+		await interaction.reply('Pong!');
+	},
 };
-

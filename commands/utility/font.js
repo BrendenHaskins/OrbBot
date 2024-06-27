@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const fontUtil = require('./fontUtilities.js');
+const fontUtil = require('./helpers/fontUtilities.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()

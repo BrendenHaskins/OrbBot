@@ -8,7 +8,7 @@ require('dotenv').config();
 const handler = require('./responseHandler.js');
 const Discord = require('discord.js');
 const { Client, GatewayIntentBits, PermissionsBitField} = require('discord.js');
-const client = new Discord.Client({
+const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
@@ -17,8 +17,7 @@ const client = new Discord.Client({
     ],
 });
 
-
-//when you run 'node index.js' this function runs
+//post init function
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });

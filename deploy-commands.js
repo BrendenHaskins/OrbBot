@@ -34,9 +34,17 @@ for (const folder of commandFolders) {
 //construct and prepare an instance of the REST module
 const rest = new REST().setToken(token);
 
-// and deploy your commands!
+// deployment mode: GLOBAL
 (async () => {
 	try {
+
+		//clear all previous commands
+		console.log('clearing all associated commands.')
+		const clearData = await rest.put(
+			Routes.applicationCommands(clientId),
+			{ body: [] },
+		);
+
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
@@ -45,6 +53,8 @@ const rest = new REST().setToken(token);
 			Routes.applicationCommands(clientId),
 			{ body: commands },
 		);
+
+		
 
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
 	} catch (error) {

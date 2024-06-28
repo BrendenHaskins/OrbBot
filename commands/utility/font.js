@@ -7,7 +7,8 @@ module.exports = {
 		.setDescription('Changes the font of a message')
 
 		.addStringOption(option =>
-			option.setName('font')
+			option
+				.setName('font')
 				.setDescription('font desired')
 				.setRequired(true)
 				.addChoices(
@@ -16,7 +17,8 @@ module.exports = {
 				))
 
 		.addStringOption(option =>
-			option.setName('message')
+			option
+				.setName('message')
 				.setDescription('message to alter')
 				.setRequired(true)
 		),

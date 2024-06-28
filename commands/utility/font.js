@@ -25,11 +25,11 @@ module.exports = {
 		
 	async execute(interaction) {
 		const font = interaction.options.getString('font');
-		const message = interaction.option.getString('message');
+		//const message = interaction.option.getString('message');
 		const response = fontUtil.changeFont(message, font);
 		
 
 
-		await interaction.reply(response);
+		await interaction.reply('responsetest');
 	},
 };

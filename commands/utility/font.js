@@ -30,6 +30,6 @@ module.exports = {
 		
 
 
-		await interaction.reply('Testing message ' + response);
+		await interaction.reply(response);
 	},
 };

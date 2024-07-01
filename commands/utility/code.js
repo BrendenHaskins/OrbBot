@@ -34,7 +34,7 @@ module.exports = {
 
 
 			const filter = (interaction) => interaction.customId === 'codeModal';
-			initialInteraction.awaitModalSubmit({ time: 60_000, filter })
+			interaction.awaitModalSubmit({ time: 60_000, filter })
 				.then(interaction => interaction.reply(fontUtil.convertToMarkdown(body,language)));
 
 		}

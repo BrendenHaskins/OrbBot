@@ -1,28 +1,38 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { ModalBuilder, Events, TextInputBuilder, TextInputStyle } = require('discord.js');
 const fontUtil = require('./helpers/fontUtilities.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('code')
-		.setDescription('Alters message to appear as code')
+		.setDescription('formats a code segment'),
 
-		
-		.addStringOption(option =>
-			option
-				.setName('text')
-				.setDescription('text to alter')
-				.setRequired(true)
-		)
-
-		.addStringOption(option =>
-			option
-				.setName('language')
-				.setDescription('programming language to use')
-		),
-		
 	async execute(interaction) {
-		const text = interaction.options.getString('text');
-		const language = interaction.options.getString('language') ?? 'nolang';
+		const modal = new ModalBuilder()
+		.setCustomId('codeModal')
+		.setTitle('Format Code Segment');
+
+		const languageInput = new TextInputBuilder()
+			.setCustomId('codeLanguage')
+			.setLabel('Programming Language')
+			.setPlaceHolder('What Language are you using?')
+			.setStyle(TextInputStyle.Short);
+		
+		const codeInput = new TextInputBuiilder()
+			.setCustomId('codeBody')
+			.setLabel('Code')
+			.setPlaceHolder("Your code here...")
+			.setRequired(true)
+			.setStyle(TextInputStyle.Paragraph);
+
+		const firstActionRow = new ActionRowBuilder().addComponents(languageInput);
+		const secondActionRow = new ActionRowBuilder().addComponents(codeInput);
+
+		await interaction.showModal(modal);
+
+
+
+		const language = interaction.fields.getTextInputValue('languageInput') ?? false;
+		const body = interaction.fields.getTextInputValue('codeInput');
 
 		await interaction.reply(fontUtil.convertToMarkdown(text,language));
 	},

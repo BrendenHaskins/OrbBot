@@ -22,15 +22,8 @@ module.exports = {
 		
 	async execute(interaction) {
 		const text = interaction.options.getString('text');
-		const language = interaction.options.getString('language') ?? false;
-		if(language) {
-			const response = fontUtil.convertToMarkdown(text);
-		} else {
-			const response = fontUtil.convertToMarkdown(text,language);
-		}
-		
+		const language = interaction.options.getString('language') ?? 'nolang';
 
-
-		await interaction.reply(response);
+		await interaction.reply(fontUtil.convertToMarkdown(text,language));
 	},
 };

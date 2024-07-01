@@ -1,4 +1,4 @@
-const { ModalBuilder, Events, TextInputBuilder, TextInputStyle } = require('discord.js');
+const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const fontUtil = require('./helpers/fontUtilities.js');
 
 module.exports = {

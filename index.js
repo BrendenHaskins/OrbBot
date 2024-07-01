@@ -49,15 +49,13 @@ client.on(Events.InteractionCreate, async interaction => {
 
     const command = interaction.client.commands.get(interaction.commandName);
 
-    if(!command && interaction.isChatInputCommand()) {
+    if(!command) {
         console.error('no such command: ${interaction.commandName}');
         return;
     }
 
     try {
-		if(interaction.isChatInputCommand){
-			await command.execute(interaction);
-		}
+		await command.execute(interaction);
     } catch (error) {
         console.error(error);
         if (interaction.replied || interaction.deferred) {

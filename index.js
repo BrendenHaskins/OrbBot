@@ -49,7 +49,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
     const command = interaction.client.commands.get(interaction.commandName);
 
-    if(!command) {
+    if(!command && interaction.isChatInputCommand()) {
         console.error('no such command: ${interaction.commandName}');
         return;
     }

@@ -22,7 +22,7 @@ module.exports = {
 		
 	async execute(interaction) {
 		const text = interaction.options.getString('text');
-		const language = interaction.option.getString('language') ?? '';
+		const language = interaction.option.getString('language') ?? false;
 		if(language) {
 			const response = fontUtil.convertToMarkdown(text);
 		} else {

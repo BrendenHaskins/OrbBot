@@ -60,7 +60,7 @@ function parseUnicode(element) {
 }
 
 function convertToMarkdown(body, language) {
-    if(language) {
+    if(language && markdownLanguages.includes(language)) {
         return `\`\`\`${language} ${body}\`\`\``
     } else {
         return `\`\`\`${body}\`\`\``

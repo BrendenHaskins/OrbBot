@@ -10,6 +10,18 @@ const mathBoldScriptUnicode =  [ 0x1D4EA, 0x1D4EB, 0x1D4EC, 0x1D4ED, 0x1D4EE, 0x
 const braille = [0x2801, 0x2803, 0x2809, 0x2819, 0x2811, 0x280B, 0x281B, 0x2813, 0x280A, 0x281A, 0x2805, 0x2807, 0x280D,
      0x281D, 0x2815, 0x280F, 0x281F, 0x2817, 0x280E, 0x281E, 0x2825, 0x2827, 0x283A, 0x282D, 0x283D, 0x2835];
 
+const markdownLanguages = [
+    'abap', 'actionscript', 'ada', 'apache', 'applescript', 'asciidoc', 'asm', 
+    'asp', 'awk', 'bash', 'basic', 'bsh', 'c', 'csharp', 'cpp', 'css', 'd', 
+    'delphi', 'diff', 'dos', 'erlang', 'fsharp', 'fortran', 'gcode', 'go', 
+    'groovy', 'haskell', 'haxe', 'http', 'java', 'javascript', 'json', 'julia', 
+    'kotlin', 'latex', 'lisp', 'lua', 'makefile', 'markdown', 'matlab', 'nginx', 
+    'nim', 'objectivec', 'ocaml', 'perl', 'php', 'plaintext', 'powershell', 
+    'prolog', 'protobuf', 'python', 'r', 'ruby', 'rust', 'sas', 'scala', 'scheme', 
+    'scss', 'shell', 'sql', 'swift', 'typescript', 'vala', 'vbnet', 'verilog', 
+    'vhdl', 'vim', 'xml', 'yaml'
+];
+
 
 function changeFont(body, font) {
     let characters = Array.from(body);
@@ -47,7 +59,16 @@ function parseUnicode(element) {
     );
 }
 
+function convertToMarkdown(body, language) {
+    if(language) {
+        return `\`\`\`${language} ${body}\`\`\``
+    } else {
+        return `\`\`\`${body}\`\`\``
+    }
+}
+
 //allow module exporting of functions
 module.exports = {
-    changeFont
+    changeFont,
+    convertToMarkdown
 };

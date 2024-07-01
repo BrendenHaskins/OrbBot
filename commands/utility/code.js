@@ -8,35 +8,35 @@ module.exports = {
 
 	async execute(interaction) {
 		if(interaction.isCommand()) {
-			const modal = new ModalBuilder()
-		.setCustomId('codeModal')
-		.setTitle('Format Code Segment');
+				const modal = new ModalBuilder()
+			.setCustomId('codeModal')
+			.setTitle('Format Code Segment');
 
-		const languageInput = new TextInputBuilder()
-			.setCustomId('codeLanguage')
-			.setLabel('Programming Language')
-			.setPlaceholder('What Language are you using?')
-			.setStyle(TextInputStyle.Short);
-		
-		const codeInput = new TextInputBuilder()
-			.setCustomId('codeBody')
-			.setLabel('Code')
-			.setPlaceholder("Your code here...")
-			.setRequired(true)
-			.setStyle(TextInputStyle.Paragraph);
+			const languageInput = new TextInputBuilder()
+				.setCustomId('codeLanguage')
+				.setLabel('Programming Language')
+				.setPlaceholder('What Language are you using?')
+				.setStyle(TextInputStyle.Short);
+			
+			const codeInput = new TextInputBuilder()
+				.setCustomId('codeBody')
+				.setLabel('Code')
+				.setPlaceholder("Your code here...")
+				.setRequired(true)
+				.setStyle(TextInputStyle.Paragraph);
 
-		const firstActionRow = new ActionRowBuilder().addComponents(languageInput);
-		const secondActionRow = new ActionRowBuilder().addComponents(codeInput);
+			const firstActionRow = new ActionRowBuilder().addComponents(languageInput);
+			const secondActionRow = new ActionRowBuilder().addComponents(codeInput);
 
-		modal.addComponents(firstActionRow, secondActionRow);
+			modal.addComponents(firstActionRow, secondActionRow);
 
-		await interaction.showModal(modal);
+			await interaction.showModal(modal);
 
-		} else if (interaction.isModalSubmit()) {
-			const language = interaction.fields.getTextInputValue('languageInput') ?? false;
-		const body = interaction.fields.getTextInputValue('codeInput');
 
-		await interaction.reply(fontUtil.convertToMarkdown(text,language));
+			const filter = (interaction) => interaction.customId === 'codeModal';
+			initialInteraction.awaitModalSubmit({ time: 60_000, filter })
+				.then(interaction => interaction.reply(fontUtil.convertToMarkdown(body,language)));
+
 		}
 	},
 };

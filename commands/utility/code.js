@@ -7,7 +7,8 @@ module.exports = {
 		.setDescription('formats a code segment'),
 
 	async execute(interaction) {
-		const modal = new ModalBuilder()
+		if(interaction.isCommand()) {
+			const modal = new ModalBuilder()
 		.setCustomId('codeModal')
 		.setTitle('Format Code Segment');
 
@@ -29,11 +30,11 @@ module.exports = {
 
 		await interaction.showModal(modal);
 
-
-
-		const language = interaction.fields.getTextInputValue('languageInput') ?? false;
+		} else if (interaction.isModalSubmit()) {
+			const language = interaction.fields.getTextInputValue('languageInput') ?? false;
 		const body = interaction.fields.getTextInputValue('codeInput');
 
 		await interaction.reply(fontUtil.convertToMarkdown(text,language));
+		}
 	},
 };

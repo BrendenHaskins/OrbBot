@@ -2,9 +2,10 @@ const { SlashCommandBuilder } = require('discord.js');
 const fontUtil = require('./helpers/fontUtilities.js');
 
 module.exports = {
-	data: new SlashCommandBuilder()
+	//data: define the command and it's attributes
+	data: new SlashCommandBuilder() // /font font (required):	message(required): 
 		.setName('font')
-		.setDescription('Changes the font of a message')
+		.setDescription('changes the font of a message')
 
 		.addStringOption(option =>
 			option
@@ -23,9 +24,13 @@ module.exports = {
 				.setRequired(true)
 		),
 		
+	//execute(): handle the interaction
 	async execute(interaction) {
+		//read user input
 		const font = interaction.options.getString('font');
 		const message = interaction.options.getString('message');
+
+	
 		const response = fontUtil.changeFont(message, font);
 		
 

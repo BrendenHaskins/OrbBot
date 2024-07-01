@@ -17,7 +17,7 @@ module.exports = {
 			.setPlaceholder('What Language are you using?')
 			.setStyle(TextInputStyle.Short);
 		
-		const codeInput = new TextInputBuiilder()
+		const codeInput = new TextInputBuilder()
 			.setCustomId('codeBody')
 			.setLabel('Code')
 			.setPlaceholder("Your code here...")

@@ -45,7 +45,7 @@ client.once(Events.ClientReady, readyClient => {
 //command handler
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand() && !interaction.isModalSubmit()) return;
-	console.log(interaction);
+	console.log(interaction[username]);
 
     const command = interaction.client.commands.get(interaction.commandName);
 

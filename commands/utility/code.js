@@ -13,13 +13,13 @@ module.exports = {
 			.setTitle('Format Code Segment');
 
 			const languageInput = new TextInputBuilder()
-				.setCustomId('codeLanguage')
+				.setCustomId('languageInput')
 				.setLabel('Programming Language')
 				.setPlaceholder('What Language are you using?')
 				.setStyle(TextInputStyle.Short);
 			
 			const codeInput = new TextInputBuilder()
-				.setCustomId('codeBody')
+				.setCustomId('codeInput')
 				.setLabel('Code')
 				.setPlaceholder("Your code here...")
 				.setRequired(true)
@@ -37,7 +37,7 @@ module.exports = {
 			interaction.awaitModalSubmit({ time: 60_000, filter })
 				.then(interaction => interaction.reply(fontUtil.convertToMarkdown(
 					interaction.fields.getTextInputValue('codeInput'),
-					interaction.fields.getTextInputValue('codeInput')
+					interaction.fields.getTextInputValue('languageInput')
 				)));
 
 		}

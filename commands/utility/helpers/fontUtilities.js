@@ -30,7 +30,7 @@ function changeFont(body, font) {
                         output += parseUnicode(mathBoldScriptUnicode[code]);
                         break;
                     case 'brl':
-                        output += braille[code];
+                        output += String.fromCharCode(braille[code]);
                         break;
                 }
             }

@@ -28,6 +28,8 @@ module.exports = {
 		const firstActionRow = new ActionRowBuilder().addComponents(languageInput);
 		const secondActionRow = new ActionRowBuilder().addComponents(codeInput);
 
+		modal.addComponents(firstActionRow, secondActionRow);
+
 		await interaction.showModal(modal);
 
 		} else if (interaction.isModalSubmit()) {

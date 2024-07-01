@@ -14,13 +14,13 @@ module.exports = {
 		const languageInput = new TextInputBuilder()
 			.setCustomId('codeLanguage')
 			.setLabel('Programming Language')
-			.setPlaceHolder('What Language are you using?')
+			.setPlaceholder('What Language are you using?')
 			.setStyle(TextInputStyle.Short);
 		
 		const codeInput = new TextInputBuiilder()
 			.setCustomId('codeBody')
 			.setLabel('Code')
-			.setPlaceHolder("Your code here...")
+			.setPlaceholder("Your code here...")
 			.setRequired(true)
 			.setStyle(TextInputStyle.Paragraph);
 

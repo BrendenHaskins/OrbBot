@@ -21,6 +21,6 @@ module.exports = {
 		//read user input
 		const number = interaction.options.getInteger('number');
 		const message =  await leetcodeUtil.executeIdToSlug(number);
-		await interaction.reply("Slug: " + message);
+		await interaction.reply("https://leetcode.com/problems/"+message+"/description/");
 	},
 };

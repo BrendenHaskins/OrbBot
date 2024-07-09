@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const fontUtil = require('./helpers/fontUtilities.js');
 
 module.exports = {
 	//data: define the command and it's attributes
